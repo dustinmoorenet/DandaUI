@@ -14,7 +14,12 @@ module.exports = function(grunt) {
           sub: true,
           undef: true,
           boss: true,
-          eqnull: true
+          eqnull: true,
+          globals: {
+            Backbone: false,
+            G: false,
+            U: false
+          }
         }
       }
     },

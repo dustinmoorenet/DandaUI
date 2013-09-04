@@ -1,0 +1,4 @@
+/**
+ * Input types
+ */
+G.Input = {};
