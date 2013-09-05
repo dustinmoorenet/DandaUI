@@ -39,6 +39,9 @@ module.exports = function(grunt) {
       compile: {
         files: {
           'dist/danda-ui.css': 'css/**.styl'
+        },
+        options: {
+          import: ['theme']
         }
       }
     },
