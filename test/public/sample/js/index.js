@@ -1,7 +1,11 @@
 $(function() {
   var $body = $('body');
 
+  var panel = new G.Panel.Base();
+
   var input = new G.Input.Text();
 
-  $body.append(input.el);
+  panel.$el.append(input.el);
+
+  $body.append(panel.el);
 })

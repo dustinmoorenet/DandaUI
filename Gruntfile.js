@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    js_src: ['g/**/*.js', 'u/**/*.js'],
+    js_src: ['g/**/index.js', 'u/**/index.js', 'g/**/*.js', 'u/**/*.js'],
+    js_test_src: ['test/g/**/index.js', 'test/u/**/index.js', 'test/g/**/*.js', 'test/u/**/*.js'],
     jshint: {
       dist: {
         src: '<%= js_src %>',
@@ -15,10 +16,35 @@ module.exports = function(grunt) {
           undef: true,
           boss: true,
           eqnull: true,
+          browser: true,
           globals: {
             Backbone: false,
             G: false,
             U: false
+          }
+        }
+      },
+      test: {
+        src: '<%= js_test_src %>',
+        options: {
+          curly: true,
+          eqeqeq: true,
+          immed: true,
+          latedef: true,
+          newcap: true,
+          noarg: true,
+          sub: true,
+          undef: true,
+          boss: true,
+          eqnull: true,
+          browser: true,
+          globals: {
+            Backbone: false,
+            G: false,
+            U: false,
+            expect: false,
+            describe: false,
+            it: false
           }
         }
       }
@@ -27,6 +53,10 @@ module.exports = function(grunt) {
       dist: {
         src: '<%= js_src %>',
         dest: 'dist/danda-ui.js'
+      },
+      test: {
+        src: '<%= js_test_src %>',
+        dest: 'test/public/js/danda-ui-test.js'
       }
     },
     uglify: {
@@ -46,7 +76,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= js_src %>', 'css/**.styl'],
+      files: ['<%= js_src %>', '<%= js_test_src %>', 'css/**.styl'],
       tasks: ['jshint', 'concat', 'uglify', 'stylus']
     }
   });

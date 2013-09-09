@@ -10,6 +10,17 @@ var G = {};
 G.Input = {};
 
 /**
+ * Panel views
+ */
+G.Panel = {};
+
+/**
+ * The utility library
+ */
+/* global U:true */
+var U = {};
+
+/**
  * The text input field
  */
 G.Input.Text = Backbone.View.extend({
@@ -21,7 +32,8 @@ G.Input.Text = Backbone.View.extend({
 });
 
 /**
- * The utility library
+ * Base panel view
  */
-/* global U:true */
-var U = {};
+G.Panel.Base = Backbone.View.extend({
+  className: 'base panel'
+});

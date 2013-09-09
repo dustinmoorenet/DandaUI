@@ -1,0 +1,4 @@
+/**
+ * Panel views
+ */
+G.Panel = {};
