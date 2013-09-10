@@ -22,6 +22,14 @@ describe('U', function() {
   });
 });
 
+describe('G.Input.Button', function() {
+  it('should create a button', function() {
+    var button = new G.Input.Button();
+
+    expect(button.el).to.be.an(Element);
+  });
+});
+
 describe('G.Input.Text', function() {
   it('should create a text input field', function() {
     var input = new G.Input.Text();

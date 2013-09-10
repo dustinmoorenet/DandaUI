@@ -20,6 +20,10 @@ G.Panel = {};
 /* global U:true */
 var U = {};
 
+G.Input.Button = Backbone.View.extend({
+  tagName: 'button'
+});
+
 /**
  * The text input field
  */
