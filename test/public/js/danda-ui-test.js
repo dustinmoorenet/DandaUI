@@ -38,6 +38,14 @@ describe('G.Input.Text', function() {
   });
 });
 
+describe('G.Input.ToggleButtons', function() {
+  it('is a Backbone.View', function() {
+    var buttons = new G.Input.ToggleButtons();
+
+    expect(buttons.el).to.be.an(Element);
+  });
+});
+
 describe('G.Panel.Base', function() {
   it('is a Backbone.View', function() {
     expect(G.Panel.Base).to.be.a(Function);

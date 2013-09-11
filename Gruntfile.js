@@ -6,7 +6,7 @@ module.exports = function(grunt) {
       dist: {
         src: '<%= js_src %>',
         options: {
-          curly: true,
+          curly: false,
           eqeqeq: true,
           immed: true,
           latedef: true,
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
       test: {
         src: '<%= js_test_src %>',
         options: {
-          curly: true,
+          curly: false,
           eqeqeq: true,
           immed: true,
           latedef: true,

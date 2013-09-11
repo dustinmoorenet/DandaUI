@@ -9,5 +9,9 @@ input[type="text"]{border:1px solid #191919;background:#505253;height:24px;line-
 input[type="text"][disabled]{background:#2b2b2b}
 input[type="text"]:focus{box-shadow:0 0 2px 1px #5e5e5e;outline:none}
 
+.toggle-buttons button{border-radius:0;}
+.toggle-buttons button:first-child{border-top-left-radius:3px;border-bottom-left-radius:3px}
+.toggle-buttons button:last-child{border-top-right-radius:3px;border-bottom-right-radius:3px}
+
 .base.panel{background:#353535;border:1px solid #505253;padding:20px;width:300px}
 
