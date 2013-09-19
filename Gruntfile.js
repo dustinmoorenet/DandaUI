@@ -18,6 +18,8 @@ module.exports = function(grunt) {
           eqnull: true,
           browser: true,
           globals: {
+            $: false,
+            console: false,
             Backbone: false,
             G: false,
             U: false
@@ -39,6 +41,7 @@ module.exports = function(grunt) {
           eqnull: true,
           browser: true,
           globals: {
+            $: false,
             Backbone: false,
             G: false,
             U: false,

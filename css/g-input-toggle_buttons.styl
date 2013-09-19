@@ -1,0 +1,22 @@
+.toggle-buttons
+  button
+    border-radius 0px
+    margin 5px 0px
+    border-style solid solid solid none
+
+    &:first-child
+      border-top-left-radius 3px
+      border-bottom-left-radius 3px
+      margin-left 5px
+      border-style solid
+
+    &:last-child
+      border-top-right-radius 3px
+      border-bottom-right-radius 3px
+      margin-right 5px
+
+    &:focus
+      box-shadow: inset 0px 0px 2px 1px lighten(element_border, 40%)
+
+    &.checked
+      background checked_color
