@@ -30,6 +30,15 @@ describe('G.Input.Button', function() {
   });
 });
 
+describe('G.Input.Select', function() {
+  it('should create a select', function() {
+    var select = new G.Input.Select();
+
+    expect(select.el).to.be.an(Element);
+    expect(select.$select.get(0)).to.be.an(Element);
+  });
+});
+
 describe('G.Input.Text', function() {
   it('should create a text input field', function() {
     var input = new G.Input.Text();

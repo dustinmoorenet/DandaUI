@@ -5,6 +5,11 @@ button[disabled]{background:#2b2b2b;color:#798595}
 button.active{background:#616365}
 button:focus{box-shadow:0 0 2px 1px #5e5e5e;outline:none}
 
+.select select{display:none}
+.select .display{font-weight:bold}
+.select .options{display:none}
+.select.show .options{display:block}
+
 input[type="text"]{border:1px solid #191919;background:#505253;height:24px;line-height:24px;color:#dde0e4;padding-left:7px;font-size:10px;margin:5px 0;}
 input[type="text"][disabled]{background:#2b2b2b;color:#798595}
 input[type="text"]:focus{box-shadow:0 0 2px 1px #5e5e5e;outline:none}

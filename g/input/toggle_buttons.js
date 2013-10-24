@@ -1,5 +1,8 @@
 /**
+ * A row of buttons where only one can be press at once
  *
+ * @params [object] options The view options
+ *   @attr [array] buttons Array of button text
  */
 G.Input.ToggleButtons = Backbone.View.extend({
   className: 'toggle-buttons',

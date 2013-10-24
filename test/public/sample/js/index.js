@@ -31,5 +31,11 @@ $(function() {
 
   panel.$el.append(buttons.el);
 
+  var select = new G.Input.Select();
+
+  select.addOption({value: 'FUN', text: 'happy'});
+
+  panel.$el.append(select.el);
+
   $body.append(panel.el);
 })

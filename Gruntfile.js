@@ -7,8 +7,8 @@ module.exports = function(grunt) {
         src: '<%= js_src %>',
         options: {
           curly: false,
+          laxbreak: true,
           eqeqeq: true,
-          immed: true,
           latedef: true,
           newcap: true,
           noarg: true,
@@ -19,6 +19,7 @@ module.exports = function(grunt) {
           browser: true,
           globals: {
             $: false,
+            _: false,
             console: false,
             Backbone: false,
             G: false,
@@ -30,8 +31,8 @@ module.exports = function(grunt) {
         src: '<%= js_test_src %>',
         options: {
           curly: false,
+          laxbreak: true,
           eqeqeq: true,
-          immed: true,
           latedef: true,
           newcap: true,
           noarg: true,
@@ -42,6 +43,7 @@ module.exports = function(grunt) {
           browser: true,
           globals: {
             $: false,
+            _: false,
             Backbone: false,
             G: false,
             U: false,
