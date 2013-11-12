@@ -5,28 +5,11 @@
 var G = {};
 
 /**
- * Input types
- */
-G.Input = {};
-
-/**
- * Panel views
- */
-G.Panel = {};
-
-/**
- * The utility library
- */
-/* global U:true */
-var U = {};
-
-/**
- * Basic button
+ * A 'tap'able element
  *
- * Emits a 'tap' and 'tap-[button text]' event
+ * Emits a 'tap' and 'tap-[id]' event
  */
-G.Input.Button = Backbone.View.extend({
-  tagName: 'button',
+G.Tapable = Backbone.View.extend({
 
   events: {
     'click': 'onClick',
@@ -41,36 +24,6 @@ G.Input.Button = Backbone.View.extend({
   initialize: function() {
     this.onDone = this.onDone.bind(this);
     this.onCancel = this.onCancel.bind(this);
-  },
-
-  /**
-   * Set the text of the button
-   *
-   * @param [string] text The button text
-   */
-  setText: function(text) {
-    if (this.text_class)
-      this.$el.removeClass(this.text_class);
-
-    this.text = text;
-
-    this.text_class = text.replace(' ', '-').toLowerCase();
-
-    this.$el.text(text);
-
-    this.$el.addClass(this.text_class);
-  },
-
-  /**
-   * Disable/Enable the button
-   *
-   * @param [bool] disable Disable/Enable the button
-   */
-  disable: function(disable) {
-    if (disable)
-      this.$el.prop('disabled', true);
-    else
-      this.$el.removeProp('disabled');
   },
 
   /**
@@ -144,8 +97,8 @@ G.Input.Button = Backbone.View.extend({
 
     this.trigger('tap', this);
 
-    if (this.text_class)
-      this.trigger('tap-' + this.text_class, this);
+    if (this.id)
+      this.trigger('tap-' + this.id, this);
   },
 
   /**
@@ -169,6 +122,61 @@ G.Input.Button = Backbone.View.extend({
 
     this.$el.removeClass('active');
   }
+});
+
+/**
+ * Input types
+ */
+G.Input = {};
+
+/**
+ * Panel views
+ */
+G.Panel = {};
+
+/**
+ * The utility library
+ */
+/* global U:true */
+var U = {};
+
+/**
+ * Basic button
+ *
+ * Emits a 'tap' and 'tap-[button text]' event
+ */
+G.Input.Button = G.Tapable.extend({
+  tagName: 'button',
+
+  /**
+   * Set the text of the button
+   *
+   * @param [string] text The button text
+   */
+  setText: function(text) {
+    if (this.text_class)
+      this.$el.removeClass(this.text_class);
+
+    this.text = text;
+
+    this.id = text.replace(' ', '-').toLowerCase();
+
+    this.$el.text(text);
+
+    this.$el.addClass(this.id);
+  },
+
+  /**
+   * Disable/Enable the button
+   *
+   * @param [bool] disable Disable/Enable the button
+   */
+  disable: function(disable) {
+    if (disable)
+      this.$el.prop('disabled', true);
+    else
+      this.$el.removeProp('disabled');
+  },
 });
 
 /**
@@ -234,10 +242,22 @@ G.Input.Select = Backbone.View.extend({
 
     this.$select.append(el);
 
-    el = $('<div />').text(option.text)
-                     .attr('value', option.value);
+    var div = $('<div />').text(option.text)
+                          .attr('value', option.value);
 
-    this.$('.options').append(el);
+    div = new G.Tapable({
+      el: div,
+      id: option.value
+    });
+
+    this.options[option.value] = div;
+
+    this.$('.options').append(div.el);
+
+    this.listenTo(div, 'tap', this.optionSelected);
+    this.listenTo(div, 'tap', this.commitSelectedOption);
+
+    this.$('.display').text(this.$select.find(':selected').text());
   },
 
   /**
@@ -252,6 +272,28 @@ G.Input.Select = Backbone.View.extend({
    */
   toggleDisplay: function() {
     this.$el.toggleClass('show');
+  },
+
+  /**
+   * Paint the option selected
+   */
+  optionSelected: function(option) {
+    this.$('.options div').removeClass('selected');
+
+    option.$el.addClass('selected');
+
+    this.selected_option = option;
+
+    this.$('.display').text(option.$el.text());
+  },
+
+  /**
+   * Take current state and apply to real select
+   */
+  commitSelectedOption: function() {
+    this.$el.removeClass('show');
+
+    this.$select.val(this.selected_option.id);
   }
 });
 

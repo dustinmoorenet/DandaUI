@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    js_src: ['g/**/index.js', 'u/**/index.js', 'g/**/*.js', 'u/**/*.js'],
+    js_src: ['g/*.js', 'g/**/index.js', 'u/*.js', 'u/**/index.js', 'g/**/*.js', 'u/**/*.js'],
     js_test_src: ['test/g/**/index.js', 'test/u/**/index.js', 'test/g/**/*.js', 'test/u/**/*.js'],
     jshint: {
       dist: {

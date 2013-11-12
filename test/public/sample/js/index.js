@@ -34,6 +34,8 @@ $(function() {
   var select = new G.Input.Select();
 
   select.addOption({value: 'FUN', text: 'happy'});
+  select.addOption({value: 'BLUE', text: 'No Help Here'});
+  select.addOption({value: 'SAND', text: 'Just another option'});
 
   panel.$el.append(select.el);
 

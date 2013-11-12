@@ -61,10 +61,22 @@ G.Input.Select = Backbone.View.extend({
 
     this.$select.append(el);
 
-    el = $('<div />').text(option.text)
-                     .attr('value', option.value);
+    var div = $('<div />').text(option.text)
+                          .attr('value', option.value);
 
-    this.$('.options').append(el);
+    div = new G.Tapable({
+      el: div,
+      id: option.value
+    });
+
+    this.options[option.value] = div;
+
+    this.$('.options').append(div.el);
+
+    this.listenTo(div, 'tap', this.optionSelected);
+    this.listenTo(div, 'tap', this.commitSelectedOption);
+
+    this.$('.display').text(this.$select.find(':selected').text());
   },
 
   /**
@@ -79,5 +91,27 @@ G.Input.Select = Backbone.View.extend({
    */
   toggleDisplay: function() {
     this.$el.toggleClass('show');
+  },
+
+  /**
+   * Paint the option selected
+   */
+  optionSelected: function(option) {
+    this.$('.options div').removeClass('selected');
+
+    option.$el.addClass('selected');
+
+    this.selected_option = option;
+
+    this.$('.display').text(option.$el.text());
+  },
+
+  /**
+   * Take current state and apply to real select
+   */
+  commitSelectedOption: function() {
+    this.$el.removeClass('show');
+
+    this.$select.val(this.selected_option.id);
   }
 });

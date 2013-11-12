@@ -1,16 +1,21 @@
-body{background:#181818;color:#dde0e4;font-family:Arial,Helvetica,sans-serif}
+body{background:#181818;color:#dde0e4;font-family:Arial,Helvetica,sans-serif;font-size:10px}
 
 button{border:1px solid #191919;background:#505253;height:24px;line-height:24px;color:#dde0e4;padding-left:7px;font-size:10px;margin:5px;padding:0 7px;border-radius:3px;}
 button[disabled]{background:#2b2b2b;color:#798595}
 button.active{background:#616365}
 button:focus{box-shadow:0 0 2px 1px #5e5e5e;outline:none}
 
+.select{position:relative;}
 .select select{display:none}
-.select .display{font-weight:bold}
-.select .options{display:none}
-.select.show .options{display:block}
+.select .display{position:relative;font-weight:bold;padding-right:20px;}
+.select .display:after{content:'v';color:#000;position:absolute;top:0;right:7px}
+.select .options{display:none;background-color:#dde0e4;color:#505253;border:1px solid #191919;position:absolute;top:28px;left:5px;}
+.select .options div{line-height:24px;height:24px;padding:0 7px;}
+.select .options div:hover,.select .options div.selected{background-color:#505253;color:#dde0e4}
+.select.show .display{border-bottom-left-radius:0;border-bottom-right-radius:0}
+.select.show .options{display:inline-block}
 
-input[type="text"]{border:1px solid #191919;background:#505253;height:24px;line-height:24px;color:#dde0e4;padding-left:7px;font-size:10px;margin:5px 0;}
+input[type="text"]{border:1px solid #191919;background:#505253;height:24px;line-height:24px;color:#dde0e4;padding-left:7px;margin:5px 0;}
 input[type="text"][disabled]{background:#2b2b2b;color:#798595}
 input[type="text"]:focus{box-shadow:0 0 2px 1px #5e5e5e;outline:none}
 

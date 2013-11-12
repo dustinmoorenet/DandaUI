@@ -1,12 +1,43 @@
 .select
+  position relative
+
   select
     display none
 
   .display
+    position relative
     font-weight bold
+    padding-right 20px
+
+    &:after
+      content 'v'
+      color black
+      position absolute
+      top 0px
+      right 7px
 
   .options
     display none
+    background-color list_background
+    color list_color
+    border 1px solid element_border
+    position absolute
+    top element_height + 4px
+    left 5px
 
-  &.show .options
-    display block
+    div
+      line-height element_height
+      height element_height
+      padding 0px 7px
+
+      &:hover, &.selected
+        background-color element_bg_active
+        color base_color
+
+  &.show
+    .display
+      border-bottom-left-radius 0px
+      border-bottom-right-radius 0px
+
+    .options
+      display inline-block
