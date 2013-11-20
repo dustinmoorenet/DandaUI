@@ -14,9 +14,13 @@ G.Input.Select = Backbone.View.extend({
 
   /**
    * Render and attach events
+   *
+   * @param [object] options View options
    */
-  initialize: function() {
-    this.$select = $(this.options.select || $('<select />'));
+  initialize: function(options) {
+    this.options = {};
+
+    this.$select = $((options || {}).select || $('<select />'));
 
     this.$select.remove().appendTo(this.el);
 

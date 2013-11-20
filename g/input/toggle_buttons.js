@@ -9,9 +9,11 @@ G.Input.ToggleButtons = Backbone.View.extend({
 
   /**
    * Build buttons and attach their events
+   *
+   * @param [object] options View options
    */
-  initialize: function() {
-    this.buildButtons(this.options.buttons || []);
+  initialize: function(options) {
+    this.buildButtons((options || {}).buttons || []);
 
     this.listenTo(this, 'tap', this.setChecked);
   },
