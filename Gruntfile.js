@@ -54,20 +54,15 @@ module.exports = function(grunt) {
         }
       }
     },
-    concat: {
-      dist: {
-        src: '<%= js_src %>',
-        dest: 'dist/danda-ui.js'
-      },
-      test: {
-        src: '<%= js_test_src %>',
-        dest: 'test/public/js/danda-ui-test.js'
-      }
-    },
     uglify: {
       dist : {
-        src : 'dist/danda-ui.js',
-        dest : 'dist/danda-ui.min.js'
+        src: '<%= js_src %>',
+        dest : 'dist/danda-ui.min.js',
+        options: {
+          sourceMap: 'dist/danda-ui.map',
+          sourceMapRoot: '/js/source',
+          sourceMappingURL: 'danda-ui.map',
+        }
       }
     },
     stylus: {
@@ -82,15 +77,14 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['<%= js_src %>', '<%= js_test_src %>', 'css/**.styl'],
-      tasks: ['jshint', 'concat', 'uglify', 'stylus']
+      tasks: ['jshint', 'uglify', 'stylus']
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch'); 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-stylus');
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'stylus']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'stylus']);
 };

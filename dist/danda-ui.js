@@ -199,6 +199,7 @@ G.Input.Select = Backbone.View.extend({
    * @param [object] options View options
    */
   initialize: function(options) {
+this.fun();
     this.options = {};
 
     this.$select = $((options || {}).select || $('<select />'));
