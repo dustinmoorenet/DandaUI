@@ -23,7 +23,8 @@ module.exports = function(grunt) {
             console: false,
             Backbone: false,
             G: false,
-            U: false
+            U: false,
+            JST: false
           }
         }
       },
@@ -47,6 +48,7 @@ module.exports = function(grunt) {
             Backbone: false,
             G: false,
             U: false,
+            JST: false,
             expect: false,
             describe: false,
             it: false
@@ -68,16 +70,23 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         files: {
-          'dist/danda-ui.css': 'css/**.styl'
+          'dist/danda-ui.css': 'css/*.styl'
         },
         options: {
-          import: ['theme']
+          paths: ['css'],
+          import: ['theme/dark']
         }
       }
     },
+    handlebars: {
+      dist: {
+        src: 'html/*.html',
+        dest: 'g/jst.js'
+      }
+    },
     watch: {
-      files: ['<%= js_src %>', '<%= js_test_src %>', 'css/**.styl'],
-      tasks: ['jshint', 'uglify', 'stylus']
+      files: ['<%= js_src %>', '<%= js_test_src %>', 'css/**.styl', 'html/*.html'],
+      tasks: ['jshint', 'uglify', 'stylus', 'handlebars']
     }
   });
 
@@ -85,6 +94,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch'); 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-stylus');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
 
-  grunt.registerTask('default', ['jshint', 'uglify', 'stylus']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'stylus', 'handlebars']);
 };

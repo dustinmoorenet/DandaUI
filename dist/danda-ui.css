@@ -26,4 +26,3 @@ input[type="text"]:focus{box-shadow:0 0 2px 1px #5e5e5e;outline:none}
 .toggle-buttons button.checked{background:#181818}
 
 .base.panel{background:#353535;border:1px solid #505253;padding:20px;width:300px}
-
