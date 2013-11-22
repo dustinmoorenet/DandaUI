@@ -2,6 +2,17 @@ module.exports = function(grunt) {
   grunt.initConfig({
     js_src: ['g/*.js', 'g/**/index.js', 'u/*.js', 'u/**/index.js', 'g/**/*.js', 'u/**/*.js'],
     js_test_src: ['test/g/**/index.js', 'test/u/**/index.js', 'test/g/**/*.js', 'test/u/**/*.js'],
+    handlebars: {
+      dist: {
+        src: 'templates/*.html',
+        dest: 'g/jst.js',
+        options: {
+          processName: function(filePath) {
+              return filePath.replace(/^templates\//, '').replace(/\.html$/, '');
+          }
+        }
+      }
+    },
     jshint: {
       dist: {
         src: '<%= js_src %>',
@@ -22,6 +33,7 @@ module.exports = function(grunt) {
             _: false,
             console: false,
             Backbone: false,
+            Handlebars: false,
             G: false,
             U: false,
             JST: false
@@ -46,6 +58,7 @@ module.exports = function(grunt) {
             $: false,
             _: false,
             Backbone: false,
+            Handlebars: false,
             G: false,
             U: false,
             JST: false,
@@ -78,15 +91,9 @@ module.exports = function(grunt) {
         }
       }
     },
-    handlebars: {
-      dist: {
-        src: 'html/*.html',
-        dest: 'g/jst.js'
-      }
-    },
     watch: {
-      files: ['<%= js_src %>', '<%= js_test_src %>', 'css/**.styl', 'html/*.html'],
-      tasks: ['jshint', 'uglify', 'stylus', 'handlebars']
+      files: ['<%= js_src %>', '<%= js_test_src %>', 'css/**.styl', 'templates/*.html'],
+      tasks: ['handlebars', 'jshint', 'uglify', 'stylus']
     }
   });
 
@@ -96,5 +103,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-handlebars');
 
-  grunt.registerTask('default', ['jshint', 'uglify', 'stylus', 'handlebars']);
+  grunt.registerTask('default', ['handlebars', 'jshint', 'uglify', 'stylus']);
 };
