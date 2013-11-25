@@ -1,21 +1,16 @@
 /**
  * A select drop down
- *
- * @params [object] options The view options
- *   @attr [Element] select The select to override
  */
-G.Input.Select = Backbone.View.extend({
+G.Input.Select = HumanView.extend({
   className: 'select',
 
-  template: _.template(
-    '<button class="display"></button>'
-  + '<div class="options"></div>'
-  ),
+  template: JST.select,
 
   /**
    * Render and attach events
    *
    * @param [object] options View options
+   *   @attr [Element] select The select to override
    */
   initialize: function(options) {
     this.options = {};

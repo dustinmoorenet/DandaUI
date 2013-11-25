@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    js_src: ['g/*.js', 'g/**/index.js', 'u/*.js', 'u/**/index.js', 'g/**/*.js', 'u/**/*.js'],
-    js_test_src: ['test/g/**/index.js', 'test/u/**/index.js', 'test/g/**/*.js', 'test/u/**/*.js'],
+    js_src: ['m/**/index.js', 'g/**/index.js', 'u/**/index.js', 'm/**/*.js', 'g/**/*.js', 'u/**/*.js'],
+    js_test_src: ['test/m/**/index.js', 'test/g/**/index.js', 'test/u/**/index.js', 'test/m/**/*.js', 'test/g/**/*.js', 'test/u/**/*.js'],
     handlebars: {
       dist: {
         src: 'templates/*.html',
@@ -33,7 +33,9 @@ module.exports = function(grunt) {
             _: false,
             console: false,
             Backbone: false,
+            HumanView: false,
             Handlebars: false,
+            M: false,
             G: false,
             U: false,
             JST: false
@@ -58,7 +60,9 @@ module.exports = function(grunt) {
             $: false,
             _: false,
             Backbone: false,
+            HumanView: false,
             Handlebars: false,
+            M: false,
             G: false,
             U: false,
             JST: false,

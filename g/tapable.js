@@ -3,7 +3,7 @@
  *
  * Emits a 'tap' and 'tap-[id]' event
  */
-G.Tapable = Backbone.View.extend({
+G.Tapable = HumanView.extend({
 
   events: {
     'click': 'onClick',
