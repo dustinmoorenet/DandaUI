@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    js_src: ['m/**/index.js', 'g/**/index.js', 'u/**/index.js', 'm/**/*.js', 'g/*.js', 'g/**/*.js', 'u/**/*.js'],
+    js_src: ['m/**/index.js', 'u/**/index.js', 'm/**/*.js', 'g/*.js', 'g/**/index.js', 'g/**/*.js', 'u/**/*.js'],
     js_test_src: ['test/m/**/index.js', 'test/g/**/index.js', 'test/u/**/index.js', 'test/m/**/*.js', 'test/g/**/*.js', 'test/u/**/*.js'],
     handlebars: {
       dist: {

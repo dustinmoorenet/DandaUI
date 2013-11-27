@@ -40,4 +40,8 @@ $(function() {
   panel.$el.append(select.el);
 
   $body.append(panel.el);
+
+  var modal = new G.Modal();
+
+  $body.append(modal.el);
 })
