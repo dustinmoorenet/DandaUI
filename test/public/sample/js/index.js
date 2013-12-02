@@ -41,7 +41,13 @@ $(function() {
 
   $body.append(panel.el);
 
-  var modal = new G.Modal();
+  var message = new G.Modal.Message({
+    model: new M.Message({
+      type: 'alert',
+      title: 'Hey you',
+      content: '<div class="error">I am <strong>sure</strong> this is important</div>'
+    })
+  });
 
-  $body.append(modal.el);
+  $body.append(message.modal.el);
 })
