@@ -43,11 +43,23 @@ $(function() {
 
   var message = new G.Modal.Message({
     model: new M.Message({
-      type: 'alert',
+      type: 'confirm',
       title: 'Hey you',
       content: '<div class="error">I am <strong>sure</strong> this is important</div>'
     })
   });
 
   $body.append(message.modal.el);
+
+  message.model.once('change:response', function(model, response) {
+    var message = new G.Modal.Message({
+      model: new M.Message({
+        type: 'alert',
+        title: 'You did something',
+        content: 'You clicked ' + response
+      })
+    });
+
+    $body.append(message.modal.el);
+  });
 })

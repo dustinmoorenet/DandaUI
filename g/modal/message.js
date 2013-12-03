@@ -2,10 +2,6 @@
  * A popup message
  */
 G.Modal.Message = HumanView.extend({
-  events: {
-    'click': 'close'
-  },
-
   textBindings: {
     title: '.title'
   },
@@ -56,12 +52,36 @@ G.Modal.Message = HumanView.extend({
     button.setText(text);
 
     this.$('.buttons').append(button.el);
+
+    this.listenTo(button, 'all', this.routeEvent);
+
+    this.listenTo(button, 'tap', this.setResponse.bind(this, text));
   },
 
   /**
    * Close the message
    */
   close: function() {
+    this.modal.remove();
+  },
+
+  /**
+   * Route sub events through this view
+   *
+   * @param [string] event_name The event name
+   */
+  routeEvent: function() {
+    this.trigger.apply(this, arguments);
+  },
+
+  /**
+   * Set the message response
+   *
+   * @param [string] response The response text
+   */
+  setResponse: function(response) {
+    this.model.response = response;
+
     this.modal.remove();
   }
 });
