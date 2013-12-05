@@ -21,7 +21,16 @@ G.Input.Button = G.Tapable.extend({
 
     this.$el.text(text);
 
-    this.$el.addClass(this.id);
+    this.$el.addClass('text ' + this.id);
+  },
+
+  /**
+   * Set the icon of the button
+   *
+   * @param [string] icon The icon name
+   */
+  setIcon: function(icon) {
+    this.$el.addClass('icon ' + icon);
   },
 
   /**
