@@ -5,40 +5,58 @@ G.Panel.Tabs = HumanView.extend({
   template: JST.panel_tabs,
 
   /**
-   * Store the tabs
+   * Store the panels
    */
   initialize: function(options) {
-    this.tabs = options.tabs;
+    this.panels = options.panels;
+
+    this.panel_lookup = {};
   },
 
   /**
-   * Add all tabs
+   * Render panels
    */
-  addTabs: function() {
-    this.tabs.each(this.addTab.bind(this));
+  render: function() {
+    this.renderAndBind();
+
+    this.addPanels();
+
+    return this;
   },
 
   /**
-   * Add a tab panel
+   * Add all panels
+   */
+  addPanels: function() {
+    this.panels.forEach(this.addPanel.bind(this));
+
+    this.select(0);
+  },
+
+  /**
+   * Add a panel
    *
-   * @param [object] options The tab options
+   * @param [object] options The panel options
    *   @attr [string] label The text to display in tab
    *   @attr [string] icon The icon to display next to text (optional)
-   *   @attr [View] panel The view to display in tab
+   *   @attr [View] panel The view to display
    */
-  addTab: function(options) {
-    var tab = new G.Button();
+  addPanel: function(options) {
+    options.tab = new G.Input.Button();
 
-    tab.setText(options.label);
+    options.tab.setText(options.label);
 
     if (options.icon)
-      tab.setIcon(options.icon);
+      options.tab.setIcon(options.icon);
 
-    this.$('.labels').append(tab.el);
+    this.$('.labels').append(options.tab.el);
 
-    this.listenTo(tab, 'tap', this.togglePanel.bind(this, options.panel));
+    this.listenTo(options.tab, 'tap', this.togglePanel.bind(this, options.panel));
 
+    this.registerSubview(options.tab);
     this.renderSubview(options.panel, '.panels');
+
+    this.panel_lookup[options.panel.cid] = options;
   },
 
   /**
@@ -48,12 +66,28 @@ G.Panel.Tabs = HumanView.extend({
    * @param [G.Button] tab The tab that was tapped
    */
   togglePanel: function(panel, tab) {
-    this.$('.panels .panel').hide();
+    this.$('.panels > *').hide();
 
-    panel.show();
+    panel.$el.show();
 
-    this.$('.labels').removeClass('selected');
+    this.$('.labels > button').removeClass('selected');
 
-    tab.addClass('selected');
+    tab.$el.addClass('selected');
+  },
+
+  /**
+   * Select a panel to display
+   *
+   * @param [mixed] index_or_view Either an index or a view
+   */
+  select: function(index_or_view) {
+    var panel;
+
+    if (index_or_view.el)
+      panel = this.panel_lookup[index_or_view.cid];
+    else
+      panel = this.panels[index_or_view];
+
+    this.togglePanel(panel.panel, panel.tab);
   }
 });

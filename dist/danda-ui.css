@@ -37,4 +37,9 @@ input[type="text"]:focus{box-shadow:0 0 2px 1px #5e5e5e;outline:none}
 
 .base.panel{background:#353535;border:1px solid #505253;padding:20px;width:300px}
 
-.panel.tabs tab{display:hidden}
+.panel.tabs{position:relative;box-sizing:border-box;padding-top:28px;}
+.panel.tabs .labels{position:absolute;top:0;left:0;}
+.panel.tabs .labels button{background:#2b2b2b;border-bottom-left-radius:0;border-bottom-right-radius:0;border-color:#505253;margin-bottom:0;}
+.panel.tabs .labels button.selected{background:#353535;border-bottom-color:#353535}
+.panel.tabs .labels-cover{position:absolute;box-sizing:border-box;top:29px;left:0;width:100%;height:3px;background:#353535;border-left-width:1px;border-left-style:solid;border-left-color:#505253;border-right-width:1px;border-right-style:solid;border-right-color:#505253}
+.panel.tabs .panels{border:1px solid #505253;background:#353535;padding:10px}

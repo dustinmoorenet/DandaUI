@@ -1,3 +1,41 @@
 .panel.tabs
-  tab
-    display hidden
+  position relative
+  box-sizing border-box
+  padding-top 28px
+
+  .labels
+    position absolute
+    top 0
+    left 0
+
+    button
+      background tab_background
+      border-bottom-left-radius 0
+      border-bottom-right-radius 0
+      border-color panel_border
+      margin-bottom 0
+
+      &.selected
+        background tab_selected_background
+        border-bottom-color panel_background
+
+  .labels-cover
+    position absolute
+    box-sizing border-box
+    top 29px
+    left 0
+    width 100%
+    height 3px
+    background panel_background
+    border-left-width 1px
+    border-left-style solid
+    border-left-color panel_border
+    border-right-width 1px
+    border-right-style solid
+    border-right-color panel_border
+
+
+  .panels
+    border 1px solid panel_border
+    background panel_background
+    padding 10px

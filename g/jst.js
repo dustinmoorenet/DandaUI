@@ -24,7 +24,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"panel tabs\">\n  <div class=\"labels\"></div>\n  <div class=\"panels\"></div>\n</div>\n";
+  return "<div class=\"panel tabs\">\n  <div class=\"panels\"></div>\n  <div class=\"labels\"></div>\n  <div class=\"labels-cover\"></div>\n</div>\n";
   });
 
 this["JST"]["select"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
