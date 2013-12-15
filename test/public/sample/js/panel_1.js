@@ -32,11 +32,13 @@ var Panel1 = HumanView.extend({
 
     this.$el.append(buttons.el);
 
-    var select = new G.Input.Select();
+    var select = this.select = new G.Input.Select();
 
     select.addOption({value: 'FUN', text: 'happy'});
     select.addOption({value: 'BLUE', text: 'No Help Here'});
     select.addOption({value: 'SAND', text: 'Just another option'});
+
+    select.select('BLUE');
 
     this.$el.append(select.el);
 

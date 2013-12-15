@@ -1,7 +1,7 @@
 $(function() {
   var $body = $('body');
 
-  var tabs = new G.Panel.Tabs({
+  var tabs = window.tabs = new G.Panel.Tabs({
     panels: [
       {
         label: 'First Panel',

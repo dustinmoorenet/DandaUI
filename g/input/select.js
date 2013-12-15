@@ -2,7 +2,9 @@
  * A select drop down
  */
 G.Input.Select = HumanView.extend({
-  className: 'select',
+  events: {
+    'change select': 'realSelectChanged'
+  },
 
   template: JST.select,
 
@@ -17,8 +19,6 @@ G.Input.Select = HumanView.extend({
 
     this.$select = $((options || {}).select || $('<select />'));
 
-    this.$select.remove().appendTo(this.el);
-
     this.render();
   },
 
@@ -26,11 +26,15 @@ G.Input.Select = HumanView.extend({
    * Build DOM, migrate options
    */
   render: function() {
-    this.$el.append(this.template());
+    this.renderAndBind();
+
+    this.$select.remove().appendTo(this.el);
 
     this.display = new G.Input.Button({el: this.$('.display')});
     
     this.listenTo(this.display, 'tap', this.toggleDisplay);
+
+    this.copyOptions();
   },
 
   /**
@@ -39,12 +43,14 @@ G.Input.Select = HumanView.extend({
   copyOptions: function() {
     var $options = $('option', this.$select).remove();
 
-    $options.forEach((function(option) {
+    $options.each((function(option) {
       this.addOption({
         value: option.value,
         name: $(option).text()
       });
     }).bind(this));
+
+    this.select(this.$select.val());
   },
 
   /**
@@ -73,9 +79,6 @@ G.Input.Select = HumanView.extend({
     this.$('.options').append(div.el);
 
     this.listenTo(div, 'tap', this.optionSelected);
-    this.listenTo(div, 'tap', this.commitSelectedOption);
-
-    this.$('.display').text(this.$select.find(':selected').text());
   },
 
   /**
@@ -93,16 +96,44 @@ G.Input.Select = HumanView.extend({
   },
 
   /**
+   * The real select changed
+   */
+  realSelectChanged: function() {
+    this.select(this.$select.val());
+  },
+
+  /**
+   * Directly select option
+   *
+   * @param [string] option value to select
+   */
+  select: function(value) {
+    var option = this.options[value];
+
+    if (!option)
+      return;
+
+    this.optionSelected(option);
+  },
+
+  /**
    * Paint the option selected
+   *
+   * @param [View] option selected
    */
   optionSelected: function(option) {
+    if (this.selected_option === option)
+      return;
+
     this.$('.options div').removeClass('selected');
 
     option.$el.addClass('selected');
 
     this.selected_option = option;
 
-    this.$('.display').text(option.$el.text());
+    this.display.setText(option.$el.text());
+
+    this.commitSelectedOption();
   },
 
   /**

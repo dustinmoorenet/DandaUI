@@ -19,9 +19,11 @@ G.Input.Button = G.Tapable.extend({
 
     this.id = text.replace(' ', '-').toLowerCase();
 
+    this.$el.attr('value', text);
+
     this.$el.text(text);
 
-    this.$el.addClass('text ' + this.id);
+    this.$el.addClass('text');
   },
 
   /**
