@@ -1,0 +1,37 @@
+/*
+  Icon Font: danda-icons
+*/
+
+@font-face {
+  font-family: "danda-icons";
+  src: url("./danda-icons_05b8acfa43eaed538eee3e361dd773b8.eot");
+  src: url("./danda-icons_05b8acfa43eaed538eee3e361dd773b8.eot?#iefix") format("embedded-opentype"),
+       url("./danda-icons_05b8acfa43eaed538eee3e361dd773b8.woff") format("woff"),
+       url("./danda-icons_05b8acfa43eaed538eee3e361dd773b8.ttf") format("truetype"),
+       url("./danda-icons_05b8acfa43eaed538eee3e361dd773b8.svg#danda-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-trash-can:before,
+.icon-template:before,
+.icon-triangle:before,
+.icon-arrow:before {
+  font-family: "danda-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+.icon-trash-can:before { content: "\f100"; }
+.icon-template:before { content: "\f101"; }
+.icon-triangle:before { content: "\f102"; }
+.icon-arrow:before { content: "\f103"; }

@@ -1,0 +1,18 @@
+{
+  "fonts": [
+    "/home/dustin/projects/DandaUI/dist/css/danda-icons_05b8acfa43eaed538eee3e361dd773b8.ttf",
+    "/home/dustin/projects/DandaUI/dist/css/danda-icons_05b8acfa43eaed538eee3e361dd773b8.woff",
+    "/home/dustin/projects/DandaUI/dist/css/danda-icons_05b8acfa43eaed538eee3e361dd773b8.eot",
+    "/home/dustin/projects/DandaUI/dist/css/danda-icons_05b8acfa43eaed538eee3e361dd773b8.svg"
+  ],
+  "templates": [
+    "/home/dustin/projects/DandaUI/dist/css/danda-icons.css",
+    "/home/dustin/projects/DandaUI/dist/css/danda-icons-preview.html"
+  ],
+  "glyphs": [
+    "trash-can",
+    "template",
+    "triangle",
+    "arrow"
+  ]
+}

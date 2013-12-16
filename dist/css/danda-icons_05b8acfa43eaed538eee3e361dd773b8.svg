@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-12-15: Created.
+-->
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20120731 at Sun Dec 15 21:59:39 2013
+ By Dustin Moore,,,
+Created by Dustin Moore,,, with FontForge 2.0 (http://fontforge.sf.net)
+</metadata>
+<defs>
+<font id="danda-icons" horiz-adv-x="512" >
+  <font-face 
+    font-family="danda-icons"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="512"
+    panose-1="2 0 6 9 0 0 0 0 0 0"
+    ascent="448"
+    descent="-64"
+    bbox="0 -64 512 448"
+    underline-thickness="25.6"
+    underline-position="-51.2"
+    unicode-range="U+F100-F103"
+  />
+    <missing-glyph />
+    <glyph glyph-name="uniF100" unicode="&#xf100;" 
+d="M224 448h64c17.6729 0 32 -14.3271 32 -32h96c17.6729 0 32 -14.3271 32 -32v-32h-32h-320h-32v32c0 17.6729 14.3271 32 32 32h96c0 17.6729 14.3271 32 32 32zM64 320h384v-352c0 -17.6729 -14.3271 -32 -32 -32h-320c-17.6729 0 -32 14.3271 -32 32v352zM112 288
+c-8.83691 0 -16 -7.16309 -16 -16v-256c0 -8.83691 7.16309 -16 16 -16s16 7.16309 16 16v256c0 8.83691 -7.16309 16 -16 16zM208 288c-8.83691 0 -16 -7.16309 -16 -16v-256c0 -8.83691 7.16309 -16 16 -16s16 7.16309 16 16v256c0 8.83691 -7.16309 16 -16 16zM304 288
+c-8.83691 0 -16 -7.16309 -16 -16v-256c0 -8.83691 7.16309 -16 16 -16s16 7.16309 16 16v256c0 8.83691 -7.16309 16 -16 16zM400 288c-8.83691 0 -16 -7.16309 -16 -16v-256c0 -8.83691 7.16309 -16 16 -16s16 7.16309 16 16v256c0 8.83691 -7.16309 16 -16 16z" />
+    <glyph glyph-name="uniF101" unicode="&#xf101;" 
+d="M160 288h192v-192h-192v192z" />
+    <glyph glyph-name="uniF102" unicode="&#xf102;" 
+d="M0 320h512l-256 -256z" />
+    <glyph glyph-name="uniF103" unicode="&#xf103;" 
+d="M192 384v-128h288c17.6729 0 32 -14.3271 32 -32v-64c0 -17.6729 -14.3271 -32 -32 -32h-288v-128l-192 192z" />
+  </font>
+</defs></svg>

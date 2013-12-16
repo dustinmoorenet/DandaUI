@@ -92,11 +92,12 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         files: {
-          'dist/danda-ui.css': 'css/*.styl'
+          'dist/css/danda-ui.css': ['css/*.styl']
         },
         options: {
-          paths: ['css'],
-          import: ['theme/dark']
+          paths: ['css', 'dist/css'],
+          import: ['theme/dark'],
+          'include css': true
         }
       }
     },
