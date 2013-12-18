@@ -102,7 +102,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= js_src %>', '<%= js_test_src %>', 'css/**.styl', 'templates/*.html', 'dist/css/danda-icons.css'],
+      files: ['<%= js_src %>', '<%= js_test_src %>', 'css/*.styl', 'css/**/*.styl', 'templates/*.html', 'dist/css/danda-icons.css'],
       tasks: ['handlebars', 'jshint', 'uglify', 'stylus']
     }
   });

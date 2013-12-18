@@ -19,6 +19,7 @@ var Panel1 = HumanView.extend({
 
     var button_1 = new G.Input.Button();
     button_1.setText('Active');
+    button_1.setIcon('icon-trash-can');
     this.$el.append(button_1.el);
 
     var button_2 = new G.Input.Button();

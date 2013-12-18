@@ -9,7 +9,8 @@ $(function() {
       },
       {
         label: '2nd Panel',
-        panel: new Panel1()
+        panel: new Panel1(),
+        icon: 'icon-trash-can'
       },
       {
         label: 'Last Panel',

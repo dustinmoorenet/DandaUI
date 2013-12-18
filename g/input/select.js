@@ -31,6 +31,8 @@ G.Input.Select = HumanView.extend({
     this.$select.remove().appendTo(this.el);
 
     this.display = new G.Input.Button({el: this.$('.display')});
+
+    this.display.setIcon('icon-triangle');
     
     this.listenTo(this.display, 'tap', this.toggleDisplay);
 
