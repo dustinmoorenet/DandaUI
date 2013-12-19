@@ -30,6 +30,7 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-handlebars": "*",
     "human-view": "*",
-    "human-model": "*"
+    "human-model": "*",
+    "selenium-webdriver": "*"
   }
 }
